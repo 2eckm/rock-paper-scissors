@@ -37,10 +37,31 @@ function playRound() {
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
-    ++humanScore;
+    humanScore++;
   }
   else {
     console.log("You lose! " + computerChoice + " beats " + humanChoice + ".");
-    ++computerScore;
+    computerScore++;
+  }
+}
+
+function playGame() {
+  while (humanScore < 3 && computerScore < 3) {
+    playRound();
+  }
+  if (humanScore > computerScore) {
+    console.log("You win the game! The score is " + humanScore + " to " + computerScore + ".");
+    humanScore = 0;
+    computerScore = 0;
+  }
+  else if (humanScore < computerScore) {
+    console.log("You lose the game! The score is " + humanScore + " to " + computerScore + ".");
+    humanScore = 0;
+    computerScore = 0;
+  }
+  else {
+    console.log("The game ended in a tie! ...How is that possible?")
+    humanScore = 0;
+    computerScore = 0;
   }
 }
