@@ -1,6 +1,8 @@
 console.log("Test");
 let humanChoice;
 let computerChoice;
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
   computerChoice = Math.random();
