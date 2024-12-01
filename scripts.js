@@ -1,26 +1,46 @@
 console.log("Test");
-let humanChoice;
-let computerChoice;
 let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  computerChoice = Math.random();
+  let computerChoice = Math.random();
   if (computerChoice <= 0.3333) {
-    computerChoice = "Rock";
+    computerChoice = "rock";
   }
   else if (computerChoice > 0.3333 && computerChoice < 0.6666) {
-    computerChoice = "Paper";
+    computerChoice = "paper";
   }
   else if (computerChoice >= 0.6666) {
-    computerChoice = "Scissors";
+    computerChoice = "scissors";
   }
   else {
     console.log("Could not choose for computer.")
   }
-  console.log(computerChoice);
+  return computerChoice;
 }
 
 function getHumanChoice() {
-  answer = prompt("Choose rock, paper or scissors.");
+  let humanChoice = prompt("Choose rock, paper or scissors.");
+  humanChoice = humanChoice.toLowerCase();
+  return humanChoice;
+}
+
+function playRound() {
+  let humanChoice = getHumanChoice();
+  let computerChoice = getComputerChoice();
+  if (humanChoice === computerChoice) {
+    console.log("It's a tie! Both players chose " + humanChoice + ".");
+  }
+  else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    console.log("You win! " + humanChoice + " beats " + computerChoice + ".");
+    ++humanScore;
+  }
+  else {
+    console.log("You lose! " + computerChoice + " beats " + humanChoice + ".");
+    ++computerScore;
+  }
 }
