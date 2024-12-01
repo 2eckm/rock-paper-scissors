@@ -1,18 +1,24 @@
 console.log("Test");
+let humanChoice;
+let computerChoice;
 
 function getComputerChoice() {
-  let choice = Math.random();
-  if (choice <= 0.3333) {
-    choice = "Rock";
+  computerChoice = Math.random();
+  if (computerChoice <= 0.3333) {
+    computerChoice = "Rock";
   }
-  else if (choice > 0.3333 && choice < 0.6666) {
-    choice = "Paper";
+  else if (computerChoice > 0.3333 && computerChoice < 0.6666) {
+    computerChoice = "Paper";
   }
-  else if (choice >= 0.6666) {
-    choice = "Scissors";
+  else if (computerChoice >= 0.6666) {
+    computerChoice = "Scissors";
   }
   else {
     console.log("Could not choose for computer.")
   }
-  console.log(choice);
+  console.log(computerChoice);
+}
+
+function getHumanChoice() {
+  answer = prompt("Choose rock, paper or scissors.");
 }
